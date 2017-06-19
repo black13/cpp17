@@ -7,7 +7,12 @@ Building C++17 on OSX.
    mpc-1.0.3.tar.gz
    mpfr-3.1.5.tar.bz2
    isl-0.16.1.tar.bz2
-
+   
+   https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz
+   ftp://ftp.gnu.org/gnu/mpc/mpc-1.0.2.tar.gz
+   http://www.mpfr.org/mpfr-current/mpfr-3.1.5.tar.xz
+   ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.16.1.tar.bz2
+   
 3. Build MPC
    cd mpc*
    mkdir build && cd build
