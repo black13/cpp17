@@ -1,0 +1,13 @@
+This error occurs because OSX implements a pid access policy which requires a digital signature for binaries to access other processes pids. To enable gdb access to other processes, we must first code sign the binary. This signature depends on a particular certificate, which the user must create and register with the system.
+
+To create a code signing certificate, open the Keychain Access application. Choose menu Keychain Access -> Certificate Assistant -> Create a Certificate…
+
+Choose a name for the certificate (e.g., gdb-cert), set Identity Type to Self Signed Root, set Certificate Type to Code Signing and select the Let me override defaults. Click several times on Continue until you get to the Specify a Location For The Certificate screen, then set Keychain to System.
+
+Double click on the certificate, open Trust section, and set Code Signing to Always Trust. Exit Keychain Access application.
+
+Restart the taskgated service, and sign the binary.
+
+$ sudo killall taskgated
+$ codesign -fs gdb-cert "$(which gdb)"
+source http://andresabino.com/2015/04/14/codesign-gdb-on-mac-os-x-yosemite-10-10-2/
